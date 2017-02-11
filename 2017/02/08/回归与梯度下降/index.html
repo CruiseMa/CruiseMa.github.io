@@ -17,12 +17,13 @@
 <meta property="og:image" content="http://img.warting.com/allimg/2013/c1124/13U292K50J10-501a8.jpg">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&bo=2AEMAdgBDAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&bo=pAIhAqQCIQIDCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/5sNg2CypeoIO2jdN6CjJZ6YS8ZOos9jGaoXbriO7kKk!/b/dN0AAAAAAAAA&bo=EgM.AhIDPgIDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/0MolIB1RdngNPtl7o8PnqQPx35N4a4Ppqywvha9*WLc!/b/dAkBAAAAAAAA&bo=*gHmAf4B5gEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/g.6uldOHKBkmPSs2CQjEle8Ny4z5CPAQgRJZ43qhrO4!/b/dHoBAAAAAAAA&bo=PwNcAT8DXAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&bo=CgJoAAoCaAADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&bo=jQGJAI0BiQADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/zOiqu5sEeNHPF8pEnbojaAbPdfCyFBs2gImG.a.WlBc!/b/dHgBAAAAAAAA&bo=BgKPAAYCjwADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-11T15:59:29.773Z">
+<meta property="og:updated_time" content="2017-02-11T16:09:22.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回归与梯度下降">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -187,11 +188,10 @@
 <p>基于Andrew Ng（吴恩达）的机器学习课程</p>
 <a id="more"></a>
 <h2 id="1-引入问题：房价预测"><a href="#1-引入问题：房价预测" class="headerlink" title="1.引入问题：房价预测"></a>1.引入问题：房价预测</h2><p>假设有一个房屋销售记录表</p>
-<p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&amp;bo=2AEMAdgBDAEDCSw!&amp;rf=viewer_4" alt=""><br>我们将这些数据点画出来：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&amp;bo=pAIhAqQCIQIDCSw!&amp;rf=viewer_4" alt=""></p>
-<center><em>横轴表示房屋面积，纵轴表示价格</em></center>
-
+<p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&amp;bo=2AEMAdgBDAEDCSw!&amp;rf=viewer_4" alt=""><br>我们将这些数据点画出来：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&amp;bo=pAIhAqQCIQIDCSw!&amp;rf=viewer_4" alt=""><br><em>横轴表示房屋面积，纵轴表示价格</em></p>
 <p>给你一组这样的数据集，能否预测房屋面积和房价之间的关系？</p>
 <p>我们可以用一条直线去尽量准的拟合这些数据，然后如果有新的输入过来，我们可以在将直线上这个点对应的值返回，即高中学的“线性回归（regression）”方法。</p>
+<p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/5sNg2CypeoIO2jdN6CjJZ6YS8ZOos9jGaoXbriO7kKk!/b/dN0AAAAAAAAA&amp;bo=EgM.AhIDPgIDCSw!&amp;rf=viewer_4" alt=""></p>
 <h2 id="2-学习过程"><a href="#2-学习过程" class="headerlink" title="2.学习过程"></a>2.学习过程</h2><p>首先声明一些概念和常用的符号：</p>
 <ul>
 <li>x代表输入变量，也称为特征（feature），在本例中代表房屋面积；</li>
@@ -209,8 +209,7 @@
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/0MolIB1RdngNPtl7o8PnqQPx35N4a4Ppqywvha9*WLc!/b/dAkBAAAAAAAA&amp;bo=*gHmAf4B5gEDCSw!&amp;rf=viewer_4" alt=""></p>
 <h2 id="3-线性回归"><a href="#3-线性回归" class="headerlink" title="3.线性回归"></a>3.线性回归</h2><p>通常情况下许多回归问题都有多个输入特征，例如如果除了知道房子的大小之外，我们还知道房子的卧室数量：</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/g.6uldOHKBkmPSs2CQjEle8Ny4z5CPAQgRJZ43qhrO4!/b/dHoBAAAAAAAA&amp;bo=PwNcAT8DXAEDCSw!&amp;rf=viewer_4" alt=""><br>那么，我们的训练集就可以有第二个特征，我们用 X<sub>1</sub>，X<sub>2</sub>..X<sub>i</sub> 去描述 feature 里面的分量，比如 X<sub>1</sub>代表房子的面积，X<sub>2</sub>代表卧室数量， 等等，我们可以做出一个估计函数： <img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&amp;bo=CgJoAAoCaAADCSw!&amp;rf=viewer_4" alt=""><br>我们最终的目的就是要找到合适的参数值θ。令X<sub>o</sub>=1，我们可以将函数h表示为：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&amp;bo=jQGJAI0BiQADCSw!&amp;rf=viewer_4" alt=""></p>
-<center><em>n表示特征的数目</em></center>
-
+<p><em>n表示特征的数目</em></p>
 <p>程序需要一个机制去评估 h 函数选择的 θ 是否比较好，我们用一个损失函数（loss function），描述 h 函数不好的程度，称这个函数为 J 函数：</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/zOiqu5sEeNHPF8pEnbojaAbPdfCyFBs2gImG.a.WlBc!/b/dHgBAAAAAAAA&amp;bo=BgKPAAYCjwADCSw!&amp;rf=viewer_4" alt=""> </p>
 <p>J函数是对估计值h(i)与真实值 y(i)差的平方和作为错误估计，前面乘的 1/2 是为了在求导的时候，这个系数就不见了。</p>
