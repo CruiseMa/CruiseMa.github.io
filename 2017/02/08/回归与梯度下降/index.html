@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/g.6uldOHKBkmPSs2CQjEle8Ny4z5CPAQgRJZ43qhrO4!/b/dHoBAAAAAAAA&bo=PwNcAT8DXAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&bo=CgJoAAoCaAADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&bo=jQGJAI0BiQADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-11T15:28:25.410Z">
+<meta property="og:updated_time" content="2017-02-11T15:39:29.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回归与梯度下降">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -187,7 +187,7 @@
 <a id="more"></a>
 <h2 id="1-引入问题：房价预测"><a href="#1-引入问题：房价预测" class="headerlink" title="1.引入问题：房价预测"></a>1.引入问题：房价预测</h2><p>假设有一个房屋销售记录表</p>
 <p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&amp;bo=2AEMAdgBDAEDCSw!&amp;rf=viewer_4" alt=""><br>我们将这些数据点画出来：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&amp;bo=pAIhAqQCIQIDCSw!&amp;rf=viewer_4" alt=""></p>
-<center>横轴表示房屋面积，纵轴表示价格</center>
+<center><em>横轴表示房屋面积，纵轴表示价格</em></center>
 
 <p>给你一组这样的数据集，能否预测房屋面积和房价之间的关系？</p>
 <p>我们可以用一条直线去尽量准的拟合这些数据，然后如果有新的输入过来，我们可以在将直线上这个点对应的值返回，即高中学的“线性回归”方法。</p>
@@ -207,8 +207,8 @@
 <p>下面是一个典型的机器学习的过程，<strong>首先给出一个训练集合，提供给学习算法，之后我们的算法会生成一个输出函数h，这个函数有能力对没有见过的新数据给出一个新的估计。</strong></p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/0MolIB1RdngNPtl7o8PnqQPx35N4a4Ppqywvha9*WLc!/b/dAkBAAAAAAAA&amp;bo=*gHmAf4B5gEDCSw!&amp;rf=viewer_4" alt=""></p>
 <h2 id="3-线性回归"><a href="#3-线性回归" class="headerlink" title="3.线性回归"></a>3.线性回归</h2><p>通常情况下许多回归问题都有多个输入特征，例如如果除了知道房子的大小之外，我们还知道房子的卧室数量：</p>
-<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/g.6uldOHKBkmPSs2CQjEle8Ny4z5CPAQgRJZ43qhrO4!/b/dHoBAAAAAAAA&amp;bo=PwNcAT8DXAEDCSw!&amp;rf=viewer_4" alt=""><br>那么，我们的训练集就可以有第二个特征，我们用 X<sub>1</sub>，X<sub>2</sub>..X<sub>i</sub> 去描述 feature 里面的分量，比如 X<sub>1</sub>代表房子的面积，X<sub>2</sub>代表卧室数量， 等等，我们可以做出一个估计函数： <img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&amp;bo=CgJoAAoCaAADCSw!&amp;rf=viewer_4" alt=""><br>θ 在这儿称为参数，在这的意思是调整 feature 中每个分量的影响力，就是到底是房屋的面积更重要还是卧室的数量更重要。令X<sub>o</sub>=1，我们可以将函数h表示为：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&amp;bo=jQGJAI0BiQADCSw!&amp;rf=viewer_4" alt=""></p>
-<p>对于我们的第一个学习算法来说，对h进行线性表示。</p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/g.6uldOHKBkmPSs2CQjEle8Ny4z5CPAQgRJZ43qhrO4!/b/dHoBAAAAAAAA&amp;bo=PwNcAT8DXAEDCSw!&amp;rf=viewer_4" alt=""><br>那么，我们的训练集就可以有第二个特征，我们用 X<sub>1</sub>，X<sub>2</sub>..X<sub>i</sub> 去描述 feature 里面的分量，比如 X<sub>1</sub>代表房子的面积，X<sub>2</sub>代表卧室数量， 等等，我们可以做出一个估计函数： <img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&amp;bo=CgJoAAoCaAADCSw!&amp;rf=viewer_4" alt=""><br>我们最终的目的就是要找到合适的参数值θ。令X<sub>o</sub>=1，我们可以将函数h表示为：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&amp;bo=jQGJAI0BiQADCSw!&amp;rf=viewer_4" alt=""></p>
+<p><center><em>n表示特征的数目</em></center><br>对于我们的第一个学习算法来说，对h进行线性表示。</p>
 <p>所以在这里我们会把假设表示为：<br>线性回归假设特征和结果满足线性关系。其实线性关系的表达能力非常强大，每个特征 对结果的影响强弱可以有前面的参数体现，而且每个特征变量可以首先映射到一个函数，然后再参与线性计算。这样就可以表达特征与结果之间的非线性关系。 </p>
 <p>待续…</p>
 
