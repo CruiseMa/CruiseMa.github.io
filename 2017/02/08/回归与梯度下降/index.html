@@ -9,8 +9,7 @@
   <title>回归与梯度下降 | CruiseMa&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基于Andrew Ng（吴恩达）的机器学习课程
-##1.引入问题：房价预测##
-假设有一个房屋销售记录表
+1.引入问题：房价预测假设有一个房屋销售记录表
 我们将这些数据点画出来：横轴表示房屋面积，纵轴表示价格
 给你一组这样的数据集，能否预测房屋面积和房价之间的关系？
 首先声明一些概念和常用的符号：
@@ -18,14 +17,16 @@
 x代表输入变量，也称为特征（feature），在本例中代表房屋面积；
 
 
-y代表输出变量，有时也称为目标变量（target），在本例中代表房价；">
+y代表输出变量，有时也称为目标变量（target），在本例中代表房价；
+
+
+（x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回归与梯度下降">
 <meta property="og:url" content="http://yoursite.com/2017/02/08/回归与梯度下降/index.html">
 <meta property="og:site_name" content="CruiseMa's blog">
 <meta property="og:description" content="基于Andrew Ng（吴恩达）的机器学习课程
-##1.引入问题：房价预测##
-假设有一个房屋销售记录表
+1.引入问题：房价预测假设有一个房屋销售记录表
 我们将这些数据点画出来：横轴表示房屋面积，纵轴表示价格
 给你一组这样的数据集，能否预测房屋面积和房价之间的关系？
 首先声明一些概念和常用的符号：
@@ -33,17 +34,19 @@ y代表输出变量，有时也称为目标变量（target），在本例中代�
 x代表输入变量，也称为特征（feature），在本例中代表房屋面积；
 
 
-y代表输出变量，有时也称为目标变量（target），在本例中代表房价；">
+y代表输出变量，有时也称为目标变量（target），在本例中代表房价；
+
+
+（x">
 <meta property="og:image" content="http://img.warting.com/allimg/2013/c1124/13U292K50J10-501a8.jpg">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&bo=2AEMAdgBDAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&bo=pAIhAqQCIQIDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/0MolIB1RdngNPtl7o8PnqQPx35N4a4Ppqywvha9*WLc!/b/dAkBAAAAAAAA&bo=*gHmAf4B5gEDCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-11T14:32:08.991Z">
+<meta property="og:updated_time" content="2017-02-11T14:34:26.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回归与梯度下降">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程
-##1.引入问题：房价预测##
-假设有一个房屋销售记录表
+1.引入问题：房价预测假设有一个房屋销售记录表
 我们将这些数据点画出来：横轴表示房屋面积，纵轴表示价格
 给你一组这样的数据集，能否预测房屋面积和房价之间的关系？
 首先声明一些概念和常用的符号：
@@ -51,7 +54,10 @@ y代表输出变量，有时也称为目标变量（target），在本例中代�
 x代表输入变量，也称为特征（feature），在本例中代表房屋面积；
 
 
-y代表输出变量，有时也称为目标变量（target），在本例中代表房价；">
+y代表输出变量，有时也称为目标变量（target），在本例中代表房价；
+
+
+（x">
 <meta name="twitter:image" content="http://img.warting.com/allimg/2013/c1124/13U292K50J10-501a8.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CruiseMa&#39;s blog" type="application/atom+xml">
@@ -211,8 +217,7 @@ y代表输出变量，有时也称为目标变量（target），在本例中代�
       
         <p><img src="http://img.warting.com/allimg/2013/c1124/13U292K50J10-501a8.jpg" alt=""></p>
 <p>基于Andrew Ng（吴恩达）的机器学习课程</p>
-<p>##1.引入问题：房价预测##</p>
-<p>假设有一个房屋销售记录表</p>
+<h2 id="1-引入问题：房价预测"><a href="#1-引入问题：房价预测" class="headerlink" title="1.引入问题：房价预测"></a>1.引入问题：房价预测</h2><p>假设有一个房屋销售记录表</p>
 <p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/L5jhQovUTp66bYNSvqQnuKk3QyRW*Zk21yitzZoc7II!/b/dN0AAAAAAAAA&amp;bo=2AEMAdgBDAEDCSw!&amp;rf=viewer_4" alt=""><br>我们将这些数据点画出来：<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/jscyjPbuj6Phm4W*5GTPBhspC7*N4O1qvrlj*QTheSo!/b/dAsBAAAAAAAA&amp;bo=pAIhAqQCIQIDCSw!&amp;rf=viewer_4" alt=""><br>横轴表示房屋面积，纵轴表示价格</p>
 <p>给你一组这样的数据集，能否预测房屋面积和房价之间的关系？</p>
 <p>首先声明一些概念和常用的符号：</p>
@@ -230,7 +235,8 @@ y代表输出变量，有时也称为目标变量（target），在本例中代�
 </ul>
 <h2 id="2-学习过程"><a href="#2-学习过程" class="headerlink" title="2.学习过程"></a>2.学习过程</h2><p>下面是一个典型的机器学习的过程，<strong>首先给出一个训练集合，提供给学习算法，之后我们的算法会生成一个输出函数h，这个函数有能力对没有见过的新数据给出一个新的估计。</strong></p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/0MolIB1RdngNPtl7o8PnqQPx35N4a4Ppqywvha9*WLc!/b/dAkBAAAAAAAA&amp;bo=*gHmAf4B5gEDCSw!&amp;rf=viewer_4" alt=""></p>
-<p>##3.线性回归##<br>对于我们的第一个学习算法来说，对h进行线性表示。线性回归假设特征和结果满足线性关系。其实线性关系的表达能力非常强大，每个特征 对结果的影响强弱可以有前面的参数体现，而且每个特征变量可以首先映射到一个函数，然后再参与线性计算。这样就可以表达特征与结果之间的非线性关系。 </p>
+<h2 id="3-线性回归"><a href="#3-线性回归" class="headerlink" title="3.线性回归"></a>3.线性回归</h2><p>对于我们的第一个学习算法来说，对h进行线性表示。线性回归假设特征和结果满足线性关系。其实线性关系的表达能力非常强大，每个特征 对结果的影响强弱可以有前面的参数体现，而且每个特征变量可以首先映射到一个函数，然后再参与线性计算。这样就可以表达特征与结果之间的非线性关系。 </p>
+<p>待续…</p>
 
       
 
