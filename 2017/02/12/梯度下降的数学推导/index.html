@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&bo=BAFTAAQBUwADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&bo=UQJIAVECSAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-12T12:34:11.433Z">
+<meta property="og:updated_time" content="2017-02-12T12:46:51.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降的数学推导">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -220,13 +220,13 @@
 <p>对梯度直观的解释：如果现在的纯量场用一座山来表示，纯量值越大的地方越高，反之则越低，经过梯度的运算以后，会在这座山的每一个点上都算出一个向量，这个向量会指向每个点最陡的那个方向，而向量的大小则代表了这个最陡的方向到底有多陡。</p>
 <p>梯度下降法用下面的公式迭代寻找θ</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&amp;bo=BAFTAAQBUwADCSw!&amp;rf=viewer_4" alt=""></p>
-<p>其中参数a称为learning rate，a越大每一步下降的幅度越大速度也会越快，但过大有可能导致算法不准确。</p>
+<p>其中参数a称为learning rate（a&gt;0），a越大每一步下降的幅度越大速度也会越快，但过大有可能导致算法不准确。</p>
 <p>假设我们只有一个训练样本(x,y)，展开等式右边的偏导为</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&amp;bo=UQJIAVECSAEDCSw!&amp;rf=viewer_4" alt=""></p>
 <p>得到</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&amp;bo=jQFEAI0BRAADCSw!&amp;rf=viewer_4" alt=""></p>
 <p><em>称为LMS更新规则（least mean squares 最小均方差）</em></p>
-
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2>
       
 
       
