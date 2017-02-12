@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/X2%2Bx%2B1.png/300px-X2%2Bx%2B1.png">
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/zh/math/e/7/9/e797b1aa8663f577e3a4d3512e31d5b5.png">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-12T10:38:31.975Z">
+<meta property="og:updated_time" content="2017-02-12T10:43:17.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降的数学推导">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -190,7 +190,7 @@
 <a id="more"></a>
 <h2 id="1-引入问题：寻路下山"><a href="#1-引入问题：寻路下山" class="headerlink" title="1.引入问题：寻路下山"></a>1.引入问题：寻路下山</h2><p>依旧回到我们假设的那个情境，如果我们在山顶，要以最快的方式下山，我们会怎么做？我们可能会环顾四周，然后找到最陡的方向，迈一小步，然后再找当前位置最陡的下山方向，再迈一小步…</p>
 <p><img src="http://img.blog.csdn.net/20151215165440034" alt=""></p>
-<p>暂时不用担心不同的点可能走到不同的局部最优点，因为事实证明用于线性回归的代价函数总是一个凹函数的形式,也就是说我们的山路其实应该是这样的： </p>
+<p>暂时不用担心不同的起始点可能走到不同的局部最优点，因为事实证明用于线性回归的代价函数总是一个凹函数的形式,也就是说我们的山路其实应该是这样的： </p>
 <p><img src="http://img.blog.csdn.net/20151215165658111" alt=""></p>
 <p>而这里提到的最陡的方向，其实对应的就是数学里『梯度』的概念，也就是说，其实我们无需『伸脚试探』周边的陡峭程度，而是通过计算损失函数的梯度，直接取得最陡的方向。</p>
 <p>我们知道一元函数在某一点的导数描述了这个函数在这一点附近的变化率。导数的本质是通过极限的概念对函数进行局部的线性逼近。</p>
@@ -198,7 +198,7 @@
 <p>而对于多元的情况，梯度是上面情况的一个扩展，只不过这时候的变量不再是一个，而是多个，同时我们计算得到的『梯度方向』也是一个多维的向量。大家都知道数学上计算一元函数『梯度/导数』的表达式如下： </p>
 <p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/6qSOeS6nVgpTt9zcH79hRKYhQC5JPw0w9Zcqcz7MYzw!/b/dHkBAAAAAAAA&amp;bo=OgFPADoBTwADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>对于多元的情况，我们需要求每个方向的『偏导数』，然后把它们合在一块组成梯度向量。</p>
-<p>可能你跟我一样把大一的高数都忘光了吧哈哈，赶紧回顾一下。</p>
+<p>可能你跟我一样把大一的高数都忘光了吧哈哈，赶紧来回顾一下。</p>
 <h2 id="2-知识回顾：偏导数及其几何意义"><a href="#2-知识回顾：偏导数及其几何意义" class="headerlink" title="2.知识回顾：偏导数及其几何意义"></a>2.知识回顾：偏导数及其几何意义</h2><p>在xOy平面内，当动点由P(x<sub>0</sub>,y<sub>0</sub>)沿不同方向变化时，函数f(x,y)的变化快慢一般说来是不同的，因此就需要研究f(x,y)在(x<sub>0</sub>,y<sub>0</sub>)点处沿不同方向的变化率。</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/zh/math/0/f/0/0f08ceecea906e5f9312377df703dd86.png" alt=""></p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/3d_graph_x2%2Bxy%2By2.png/300px-3d_graph_x2%2Bxy%2By2.png" alt=""></p>
