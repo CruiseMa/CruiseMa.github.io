@@ -23,7 +23,8 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/W0CqfRz1brAXtRYlfTRdaRKl3VUGwBAIWaGBVWPbvFI!/b/dN8AAAAAAAAA&bo=CgJoAAoCaAADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/9ambBy0HiWU4H4fQTaxx.5S*o97l0BuXZpKAtB.H5wA!/b/dN4AAAAAAAAA&bo=jQGJAI0BiQADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/zOiqu5sEeNHPF8pEnbojaAbPdfCyFBs2gImG.a.WlBc!/b/dHgBAAAAAAAA&bo=BgKPAAYCjwADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-12T07:02:44.247Z">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-02-12T08:01:37.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回归与梯度下降">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -220,8 +221,12 @@
 <li>首先对θ赋值，这个值可以是随机的，也可以让θ是一个全零的向量。 </li>
 <li>改变θ的值，使得J(θ)按梯度下降的方向进行减少。 </li>
 </ol>
+<p>对于单一的训练样本，这里给出了更新规则：</p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&amp;bo=jQFEAI0BRAADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>称为LMS更新规则（least mean squares 最小均方差），其中，α称为学习率，是一个能自己设定的常数，通常很小，下面还会讲到。</p>
 <p>梯度下降法最大的问题是求得有可能是全局极小值，这与初始点的选取有关。</p>
 <p>待续…</p>
+<p>梯度方向由 J(θ)对 θ 的偏导数确定，由于求的是极小值，因此梯度方向是偏导数的反方向。 结果为 </p>
 
       
 
