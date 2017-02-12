@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/X2%2Bx%2B1.png/300px-X2%2Bx%2B1.png">
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/zh/math/e/7/9/e797b1aa8663f577e3a4d3512e31d5b5.png">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-12T10:36:07.659Z">
+<meta property="og:updated_time" content="2017-02-12T10:38:31.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降的数学推导">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -199,14 +199,14 @@
 <p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/6qSOeS6nVgpTt9zcH79hRKYhQC5JPw0w9Zcqcz7MYzw!/b/dHkBAAAAAAAA&amp;bo=OgFPADoBTwADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>对于多元的情况，我们需要求每个方向的『偏导数』，然后把它们合在一块组成梯度向量。</p>
 <p>可能你跟我一样把大一的高数都忘光了吧哈哈，赶紧回顾一下。</p>
-<h2 id="2-知识回顾：偏导数及梯度"><a href="#2-知识回顾：偏导数及梯度" class="headerlink" title="2.知识回顾：偏导数及梯度"></a>2.知识回顾：偏导数及梯度</h2><p>在xOy平面内，当动点由P(x<sub>0</sub>,y<sub>0</sub>)沿不同方向变化时，函数f(x,y)的变化快慢一般说来是不同的，因此就需要研究f(x,y)在(x<sub>0</sub>,y<sub>0</sub>)点处沿不同方向的变化率。</p>
+<h2 id="2-知识回顾：偏导数及其几何意义"><a href="#2-知识回顾：偏导数及其几何意义" class="headerlink" title="2.知识回顾：偏导数及其几何意义"></a>2.知识回顾：偏导数及其几何意义</h2><p>在xOy平面内，当动点由P(x<sub>0</sub>,y<sub>0</sub>)沿不同方向变化时，函数f(x,y)的变化快慢一般说来是不同的，因此就需要研究f(x,y)在(x<sub>0</sub>,y<sub>0</sub>)点处沿不同方向的变化率。</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/zh/math/0/f/0/0f08ceecea906e5f9312377df703dd86.png" alt=""></p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/3d_graph_x2%2Bxy%2By2.png/300px-3d_graph_x2%2Bxy%2By2.png" alt=""></p>
 <p>因为曲面上的每一点都有无穷多条切线，描述这种函数的导数相当困难。偏导数就是选择其中一条切线，并求出它的斜率。通常，最感兴趣的是垂直于y轴（平行于xOz平面）的切线，以及垂直于x轴（平行于yOz平面）的切线。</p>
 <p>我们希望求出函数在点（1, 1, 3）的对x的偏导数，对应的切线与xOz平面平行。求偏导的办法是把其他变量视为常数，我们把变量y视为常数，这是y = 1时的图像:</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/X2%2Bx%2B1.png/300px-X2%2Bx%2B1.png" alt=""></p>
 <p>通过求这个图中的切线斜率，得出函数在点（1, 1, 3）的对x的偏导为3，记为：<br><img src="http://upload.wikimedia.org/wikipedia/zh/math/e/7/9/e797b1aa8663f577e3a4d3512e31d5b5.png" alt=""></p>
-<p>对于单一的训练样本，这里给出了更新规则：</p>
+<h2 id="3-知识回顾：梯度"><a href="#3-知识回顾：梯度" class="headerlink" title="3.知识回顾：梯度"></a>3.知识回顾：梯度</h2><p>对于单一的训练样本，这里给出了更新规则：</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&amp;bo=jQFEAI0BRAADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>称为LMS更新规则（least mean squares 最小均方差），其中，α称为学习率，是一个能自己设定的常数，通常很小，下面还会讲到。</p>
 
