@@ -23,10 +23,15 @@
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/3d_graph_x2%2Bxy%2By2.png/300px-3d_graph_x2%2Bxy%2By2.png">
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/X2%2Bx%2B1.png/300px-X2%2Bx%2B1.png">
 <meta property="og:image" content="http://upload.wikimedia.org/wikipedia/zh/math/e/7/9/e797b1aa8663f577e3a4d3512e31d5b5.png">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/dohN6vjbAN8YI91iSGfToc917s86Se0ZyiiLiWU0Acg!/b/dN8AAAAAAAAA&bo=3gFpAN4BaQADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/sb9NQjCTvAZqhyM9PPhnHktb3QSlfXo2zCxYlMBQq3o!/b/dHkBAAAAAAAA&bo=bgFAAG4BQAADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4loP7Y1CEaIhSrZ0P37YQwHMm3Q0qELU7DxFwGtT3y4!/b/dK4AAAAAAAAA&bo=dwIHAXcCBwEDCSw!&rf=viewer_4">
+<meta property="og:image" content="http://7xn9xp.com1.z0.glb.clouddn.com/16-3-13/9427673.jpg">
+<meta property="og:image" content="http://7xn9xp.com1.z0.glb.clouddn.com/16-3-13/71809303.jpg">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&bo=BAFTAAQBUwADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&bo=UQJIAVECSAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-12T12:46:51.795Z">
+<meta property="og:updated_time" content="2017-02-12T13:11:44.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降的数学推导">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -192,7 +197,7 @@
 <a id="more"></a>
 <h2 id="1-引入问题：寻路下山"><a href="#1-引入问题：寻路下山" class="headerlink" title="1.引入问题：寻路下山"></a>1.引入问题：寻路下山</h2><p>依旧回到我们假设的那个情境，如果我们在山顶，要以最快的方式下山，我们会怎么做？我们可能会环顾四周，然后找到最陡的方向，迈一小步，然后再找当前位置最陡的下山方向，再迈一小步…</p>
 <p><img src="http://img.blog.csdn.net/20151215165440034" alt=""></p>
-<p>暂时不用担心不同的起始点可能走到不同的局部最优点，因为事实证明用于线性回归的代价函数总是一个凹函数的形式,也就是说我们的山路其实应该是这样的： </p>
+<p>暂时不用担心不同的起始点可能走到不同的局部最优点，因为事实证明用于线性回归的代价函数总是一个凸函数的形式,也就是说我们的山路其实应该是这样的： </p>
 <p><img src="http://img.blog.csdn.net/20151215165658111" alt=""></p>
 <p>而这里提到的最陡的方向，其实对应的就是数学里『梯度』的概念，也就是说，其实我们无需『伸脚试探』周边的陡峭程度，而是通过计算损失函数的梯度，直接取得最陡的方向。</p>
 <p>我们知道一元函数在某一点的导数描述了这个函数在这一点附近的变化率。导数的本质是通过极限的概念对函数进行局部的线性逼近。</p>
@@ -208,7 +213,7 @@
 <p>我们希望求出函数在点（1, 1, 3）的对x的偏导数，对应的切线与xOz平面平行。求偏导的办法是把其他变量视为常数，我们把变量y视为常数，这是y = 1时的图像:</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/X2%2Bx%2B1.png/300px-X2%2Bx%2B1.png" alt=""></p>
 <p>通过求这个图中的切线斜率，得出函数在点（1, 1, 3）的对x的偏导为3，记为：<br><img src="http://upload.wikimedia.org/wikipedia/zh/math/e/7/9/e797b1aa8663f577e3a4d3512e31d5b5.png" alt=""></p>
-<h2 id="3-梯度下降"><a href="#3-梯度下降" class="headerlink" title="3.梯度下降"></a>3.梯度下降</h2><ul>
+<h2 id="3-梯度详解"><a href="#3-梯度详解" class="headerlink" title="3.梯度详解"></a>3.梯度详解</h2><ul>
 <li>假如一个空间中的每一点的属性都可以以一个标量来代表的话，那么这个场就是一个标量场。</li>
 </ul>
 <ul>
@@ -218,7 +223,52 @@
 <li>标量场中某一点上的梯度指向标量场增长最快的方向，梯度的长度是这个最大的变化率。</li>
 </ul>
 <p>对梯度直观的解释：如果现在的纯量场用一座山来表示，纯量值越大的地方越高，反之则越低，经过梯度的运算以后，会在这座山的每一个点上都算出一个向量，这个向量会指向每个点最陡的那个方向，而向量的大小则代表了这个最陡的方向到底有多陡。</p>
-<p>梯度下降法用下面的公式迭代寻找θ</p>
+<p>求梯度的方法很简单，对每一个自变量求偏导数，然后将其偏导数作为自变量方向的坐标即可。梯度的符号为∇，则函数f(x,y)的梯度为：</p>
+<p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/dohN6vjbAN8YI91iSGfToc917s86Se0ZyiiLiWU0Acg!/b/dN8AAAAAAAAA&amp;bo=3gFpAN4BaQADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>以函数f(x)为例，先选择一个初始点，计算该点的梯度，然后按照梯度的方向更新自变量。若第k次迭代值为x(k)，则 </p>
+<p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/sb9NQjCTvAZqhyM9PPhnHktb3QSlfXo2zCxYlMBQq3o!/b/dHkBAAAAAAAA&amp;bo=bgFAAG4BQAADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>其中α称作步长或者学习率，表示自变量每次迭代变化的大小。</p>
+<p>一直按照上式更新自变量，直到当函数值变化非常小（如3%以内）或者达到最大迭代次数时停止，此时认为自变量更新到函数的极小值点。</p>
+<h2 id="梯度下降法的简单应用"><a href="#梯度下降法的简单应用" class="headerlink" title="梯度下降法的简单应用"></a>梯度下降法的简单应用</h2><p>例1.求f(x)=x^2的极小值</p>
+<p>f(x)的梯度为 ∇f(x)=2x</p>
+<p>步长设置为0.1，选取自变量从3开始，则计算过程如下</p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4loP7Y1CEaIhSrZ0P37YQwHMm3Q0qELU7DxFwGtT3y4!/b/dK4AAAAAAAAA&amp;bo=dwIHAXcCBwEDCSw!&amp;rf=viewer_4" alt=""></p>
+<p>可以看到随着迭代次数的增加，该函数越来越接近极小值点(0,0)，依据该方法一定可以找到精度允许范围内的极小值点。</p>
+<p>以下是迭代的代码：</p>
+<pre><code>`if __name__ == &quot;__main__&quot;:
+x = 3
+y = x * x
+alpha = 0.1
+count = 3
+while (count &gt; 0):
+    x = x - alpha * 2 * x
+    y = x * x
+    count = count - 1
+print x, y`
+</code></pre><p>例2.求f(x,y)=(x−10)^2+(y−10)^2的极小值</p>
+<p>梯度为∇f(x,y)=(2(x−10),2(y−10))</p>
+<p>步长设置为0.1，选择初始点为(20,20)，这次以图形表示计算过程，图中的黑色曲线即为梯度下降法下降时的轨迹，效果非常好。 斜视图： </p>
+<p><img src="http://7xn9xp.com1.z0.glb.clouddn.com/16-3-13/9427673.jpg" alt=""></p>
+<p>俯视图：<img src="http://7xn9xp.com1.z0.glb.clouddn.com/16-3-13/71809303.jpg" alt=""></p>
+<ul>
+<li>梯度下降法求的是极小值，而不是最小值。</li>
+</ul>
+<ul>
+<li>梯度下降法常常用来求凸函数的最小值，例如机器学习中各种代价函数的最小值。</li>
+</ul>
+<ul>
+<li>步长的选取很关键，步长过长达不到极值点甚至会发散，步长太短导致收敛时间过长。</li>
+</ul>
+<ul>
+<li>斯坦福的机器学习视频中建议按照[0.001,0.003,0.01,0.03,…]的顺序尝试设置步长，同时观察函数值选择收敛最快的步长。</li>
+</ul>
+<ul>
+<li>步长也可以设置为非固定值，根据迭代的情况变化。</li>
+</ul>
+<ul>
+<li>下降的初始点一般设置为从原点开始。</li>
+</ul>
+<h2 id="J函数极值问题"><a href="#J函数极值问题" class="headerlink" title="J函数极值问题"></a>J函数极值问题</h2><p>梯度下降法用下面的公式迭代寻找θ</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&amp;bo=BAFTAAQBUwADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>其中参数a称为learning rate（a&gt;0），a越大每一步下降的幅度越大速度也会越快，但过大有可能导致算法不准确。</p>
 <p>假设我们只有一个训练样本(x,y)，展开等式右边的偏导为</p>
