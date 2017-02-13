@@ -8,16 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>机器学习（二）：梯度下降法 | CruiseMa&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于Andrew Ng（吴恩达）的机器学习课程
-
-在可以预期的未来，大数据与人工智能方面的工作机会将会快速增长，聪明的人已经在提前进行布局。要学习这个领域，我个人认为其难点不在于计算机技术本身，而在于相关的数学基础，以及对特定应用领域的了解。数学好，你才能够真正理解和用好各种算法，并进而掌握各种计算机工具、框架和平台，具备对数据进行各种分析和处理的职业技能。只有对特定行业和领域本身有较多的深入的">
+  <meta name="description" content="基于Andrew Ng（吴恩达）的机器学习课程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习（二）：梯度下降法">
 <meta property="og:url" content="http://yoursite.com/2017/02/12/梯度下降的数学推导/index.html">
 <meta property="og:site_name" content="CruiseMa's blog">
-<meta property="og:description" content="基于Andrew Ng（吴恩达）的机器学习课程
-
-在可以预期的未来，大数据与人工智能方面的工作机会将会快速增长，聪明的人已经在提前进行布局。要学习这个领域，我个人认为其难点不在于计算机技术本身，而在于相关的数学基础，以及对特定应用领域的了解。数学好，你才能够真正理解和用好各种算法，并进而掌握各种计算机工具、框架和平台，具备对数据进行各种分析和处理的职业技能。只有对特定行业和领域本身有较多的深入的">
+<meta property="og:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
 <meta property="og:image" content="http://img.warting.com/allimg/2013/c1124/13U292MZ9360-CC92.jpg">
 <meta property="og:image" content="http://img.blog.csdn.net/20151215165440034">
 <meta property="og:image" content="http://img.blog.csdn.net/20151215165658111">
@@ -35,12 +31,10 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&bo=BAFTAAQBUwADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&bo=UQJIAVECSAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-13T03:54:02.745Z">
+<meta property="og:updated_time" content="2017-02-13T03:56:03.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降法">
-<meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程
-
-在可以预期的未来，大数据与人工智能方面的工作机会将会快速增长，聪明的人已经在提前进行布局。要学习这个领域，我个人认为其难点不在于计算机技术本身，而在于相关的数学基础，以及对特定应用领域的了解。数学好，你才能够真正理解和用好各种算法，并进而掌握各种计算机工具、框架和平台，具备对数据进行各种分析和处理的职业技能。只有对特定行业和领域本身有较多的深入的">
+<meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
 <meta name="twitter:image" content="http://img.warting.com/allimg/2013/c1124/13U292MZ9360-CC92.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CruiseMa&#39;s blog" type="application/atom+xml">
@@ -200,10 +194,10 @@
       
         <p><img src="http://img.warting.com/allimg/2013/c1124/13U292MZ9360-CC92.jpg" alt=""></p>
 <p>基于Andrew Ng（吴恩达）的机器学习课程</p>
+<a id="more"></a>
 <blockquote>
 <p>在可以预期的未来，大数据与人工智能方面的工作机会将会快速增长，聪明的人已经在提前进行布局。要学习这个领域，我个人认为其难点不在于计算机技术本身，而在于相关的数学基础，以及对特定应用领域的了解。数学好，你才能够真正理解和用好各种算法，并进而掌握各种计算机工具、框架和平台，具备对数据进行各种分析和处理的职业技能。只有对特定行业和领域本身有较多的深入的了解，才能真正了解数据背后的含义，才能创造性地用好大数据分析与处理的结果，才能创造出巨大的商业和社会价值。<br><br>                                       —金旭亮老师</p>
 </blockquote>
-<a id="more"></a>
 <h2 id="1-引入问题：寻路下山"><a href="#1-引入问题：寻路下山" class="headerlink" title="1.引入问题：寻路下山"></a>1.引入问题：寻路下山</h2><p>依旧回到我们假设的那个情境，如果我们在山顶，要以最快的方式下山，我们会怎么做？我们可能会环顾四周，然后找到最陡的方向，迈一小步，然后再找当前位置最陡的下山方向，再迈一小步…</p>
 <p><img src="http://img.blog.csdn.net/20151215165440034" alt=""></p>
 <p>暂时不用担心不同的起始点可能走到不同的局部最优点，因为事实证明用于线性回归的代价函数总是一个凸函数的形式,也就是说我们的山路其实应该是这样的： </p>
