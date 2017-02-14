@@ -31,7 +31,9 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&bo=BAFTAAQBUwADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&bo=UQJIAVECSAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-13T03:58:07.515Z">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/8YhcnXMklWhd*oT0*HRjSQZoKcyjzEMVA5mEdS5bebE!/b/dCIAAAAAAAAA&bo=rgJ5AK4CeQADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/0upElJqB9ZQnYNrZAnUrF2zX4tZhP.rVq9LlhFsyUbA!/b/dG4BAAAAAAAA&bo=zgIGAc4CBgEDCSw!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-02-14T09:15:22.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降法">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -268,14 +270,18 @@
 <li><p>步长也可以设置为非固定值，根据迭代的情况变化。</p>
 </li>
 </ul>
-<h2 id="J函数极值问题"><a href="#J函数极值问题" class="headerlink" title="J函数极值问题"></a>J函数极值问题</h2><p>至此，我们都对梯度下降法非常熟悉了，1用下面的公式迭代寻找θ</p>
+<h2 id="J函数极值问题"><a href="#J函数极值问题" class="headerlink" title="J函数极值问题"></a>J函数极值问题</h2><p>至此，我们都对梯度下降法非常熟悉了，用下面的公式迭代寻找θ</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&amp;bo=BAFTAAQBUwADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>假设我们只有一个训练样本(x,y)，展开等式右边的偏导为</p>
 <p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&amp;bo=UQJIAVECSAEDCSw!&amp;rf=viewer_4" alt=""></p>
 <p>得到</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&amp;bo=jQFEAI0BRAADCSw!&amp;rf=viewer_4" alt=""></p>
-<p><em>LMS更新规则（least mean squares 最小均方差）</em></p>
-<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2>
+<p>派生出更为通用的m个训练样本的算法</p>
+<p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/8YhcnXMklWhd*oT0*HRjSQZoKcyjzEMVA5mEdS5bebE!/b/dCIAAAAAAAAA&amp;bo=rgJ5AK4CeQADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>这个算法实际上被称为<strong>批梯度下降法</strong>（Batch gradient descent），它是指梯度下降算法的每一次迭代都需要遍历整个训练集合，因为你需要基于你的m个训练样本进行求和。然而在实际应用中，我们可能有一个非常非常大的训练集合，如果m是一个百万级的数，意味着每次梯度下降你都需要对i从1到百万进行一个求和。计算量如此巨大，显然是不合适的。</p>
+<p>所以如果你有一个很大的训练集合，那么你应该使用<strong>随机梯度下降法</strong>（也称为增量梯度下降法）：</p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/0upElJqB9ZQnYNrZAnUrF2zX4tZhP.rVq9LlhFsyUbA!/b/dG4BAAAAAAAA&amp;bo=zgIGAc4CBgEDCSw!&amp;rf=viewer_4" alt=""></p>
+
       
 
       
