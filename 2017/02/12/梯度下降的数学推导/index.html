@@ -31,10 +31,10 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/ql3fu4uY8V1YUpUimj4a1mBCJGzuC5C*kUk63WtjCqM!/b/dHgBAAAAAAAA&bo=BAFTAAQBUwADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/*9Web630OOzBPrIDKiuGogWTKJrO*PyV.UUAtNmDvEQ!/b/dHgBAAAAAAAA&bo=UQJIAVECSAEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&bo=jQFEAI0BRAADCSw!&rf=viewer_4">
-<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/8YhcnXMklWhd*oT0*HRjSQZoKcyjzEMVA5mEdS5bebE!/b/dCIAAAAAAAAA&bo=rgJ5AK4CeQADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/GqAnjIZPW1kJEF.*JTPMwrdVBDHXpE3D*7DiGBcKIjg!/b/dG4BAAAAAAAA&bo=qwPrAKsD6wADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/WqtBhNgcDLvCuadqKj.opr6aGkhf0KpyFDicDJgn*BM!/b/dB8BAAAAAAAA&bo=uwIgArsCIAIDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/0upElJqB9ZQnYNrZAnUrF2zX4tZhP.rVq9LlhFsyUbA!/b/dG4BAAAAAAAA&bo=zgIGAc4CBgEDCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-14T09:28:56.962Z">
+<meta property="og:updated_time" content="2017-02-14T10:02:53.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）：梯度下降法">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -196,7 +196,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://img.warting.com/allimg/2013/c1124/13U292MZ9360-CC92.jpg" alt=""></p>
-<p>基于Andrew Ng（吴恩达）的机器学习课程</p>
+<p>基于<a href="http://open.163.com/special/opencourse/machinelearning.html" target="_blank" rel="external">Andrew Ng（吴恩达）的机器学习课程</a></p>
 <a id="more"></a>
 <blockquote>
 <p>在可以预期的未来，大数据与人工智能方面的工作机会将会快速增长，聪明的人已经在提前进行布局。要学习这个领域，我个人认为其难点不在于计算机技术本身，而在于相关的数学基础，以及对特定应用领域的了解。数学好，你才能够真正理解和用好各种算法，并进而掌握各种计算机工具、框架和平台，具备对数据进行各种分析和处理的职业技能。<br><br>                                       —金旭亮老师</p>
@@ -278,13 +278,13 @@
 <p>得到</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/4CwIKhDVvasOTfuO2KSeCvtjRL2KJfUjhfScC*eZAcQ!/b/dHoBAAAAAAAA&amp;bo=jQFEAI0BRAADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>派生出更为通用的m个训练样本的算法</p>
-<p><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/8YhcnXMklWhd*oT0*HRjSQZoKcyjzEMVA5mEdS5bebE!/b/dCIAAAAAAAAA&amp;bo=rgJ5AK4CeQADCSw!&amp;rf=viewer_4" alt=""></p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/GqAnjIZPW1kJEF.*JTPMwrdVBDHXpE3D*7DiGBcKIjg!/b/dG4BAAAAAAAA&amp;bo=qwPrAKsD6wADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>下图中椭圆表示J函数的等高线，蓝色曲线即为梯度下降法下降时的轨迹</p>
 <p><img src="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/WqtBhNgcDLvCuadqKj.opr6aGkhf0KpyFDicDJgn*BM!/b/dB8BAAAAAAAA&amp;bo=uwIgArsCIAIDCSw!&amp;rf=viewer_4" alt=""></p>
 <p>这个算法实际上被称为<strong>批梯度下降法</strong>（Batch gradient descent），它是指梯度下降算法的每一次迭代都需要遍历整个训练集合，因为你需要基于你的m个训练样本进行求和。然而在实际应用中，我们可能有一个非常非常大的训练集合，如果m是一个百万级的数，意味着每次梯度下降你都需要对i从1到百万进行一个求和。计算量如此巨大，显然是不合适的。</p>
 <p>所以如果你有一个很大的训练集合，那么你应该使用<strong>随机梯度下降法</strong>（也称为增量梯度下降法）：</p>
 <p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/0upElJqB9ZQnYNrZAnUrF2zX4tZhP.rVq9LlhFsyUbA!/b/dG4BAAAAAAAA&amp;bo=zgIGAc4CBgEDCSw!&amp;rf=viewer_4" alt=""></p>
-<p>从样本集D拿出D1，然后按顺序在D1上一步一步学习，学习完之后，再拿出D2，然后按顺序在D2上学习，不断地调整权值，从而最终得到一组权值使得我们的程序能够对一个新的样本输入得到正确的或无限接近的结果。</p>
+<p>从样本集D拿出D1，按D1学习，走一步，再拿出D2，然后按D2学习，走第二步，不断地调整权值，从而最终得到一组权值使得我们的程序能够对一个新的样本输入得到正确的或无限接近的结果。</p>
 
       
 
@@ -367,6 +367,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/02/14/最小二乘法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          机器学习（三）：最小二乘法
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/08/回归与梯度下降/" id="article-nav-older" class="article-nav-link-wrap">
