@@ -19,7 +19,9 @@
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz1GcAqL/hjdrk1Gzf0budLOHeYAAybN8ClBjt5yhfzPUSMrGago!/b/dPYAAAAAAAAA&bo=DgV.AQ4FfgEDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz1GcAqL/UHeWTfjw92AVb2OXt0rAEqSsCoFWhRyf5Ubg*Hhb2Sg!/b/dCABAAAAAAAA&bo=RQIuAkUCLgIDCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz1GcAqL/IPeCFi9RSd8n*z0x4cRu3C1dlJHGR8eseZSugVRYChU!/b/dN8AAAAAAAAA&bo=XwMIAV8DCAEDCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-17T12:39:29.542Z">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz1GcAqL/2UCUKrXhrABc73EtVAqVpd2RzbXBW.xCyTuUyNdfjDI!/b/dLIAAAAAAAAA&bo=wgJnAMICZwADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz1GcAqL/1QxcTdc6IBUKp8WNLShqKpkACGSckVfeOUZ9DppAuOM!/b/dLIAAAAAAAAA&bo=sgJXALICVwADCSw!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-02-17T14:37:38.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="密码学与网络安全（一）：导言">
 <meta name="twitter:image" content="http://img.warting.com/allimg/2016/1121/dgjmnrtmpus-8.jpg">
@@ -251,7 +253,17 @@
 <li><strong>非对称密匙加密</strong>：有一把公钥和一把私钥，发送方用接收方的公钥对信息进行加密，接收方用自己的私钥进行解密。</li>
 <li><strong>散列法</strong>：从可变长度信息创建一个固定长度的信息摘要，信息和信息摘要都发送给接受方，保证信息完整性。</li>
 </ul>
-<p><strong>密写术</strong>(steganography)是指用另外的某种东西把信息本身隐蔽起来。 </p>
+<p><strong>密写术</strong>(steganography)是指用另外的某种东西把信息本身隐蔽起来。</p>
+<ul>
+<li><strong>文本覆盖</strong></li>
+</ul>
+<p>用几种方法都可以把二进制信息嵌入到无害的文本当中去。例如，我们可以用词语之间的单倍行距代表二进制的 0，用双倍行 距代表二进制的 1。下面的短信息就把字母 A 的 8 比特二进制代码隐藏于 ASCII 编码 (01000001)中了。 </p>
+<p><img src="http://a2.qpic.cn/psb?/V11CXqIz1GcAqL/2UCUKrXhrABc73EtVAqVpd2RzbXBW.xCyTuUyNdfjDI!/b/dLIAAAAAAAAA&amp;bo=wgJnAMICZwADCSw!&amp;rf=viewer_4" alt=""></p>
+<ul>
+<li><strong>图像覆盖</strong></li>
+</ul>
+<p>机密数据也可以用彩色图像进行覆盖。数字化图像是由像素组成的，通常 每像素有 24 比特(3 字节)，每字节代表一种原色(红、绿、蓝)。因此，每种原色就会拥有 28种不同的色调。在一种称为 LSB(least significant bit)的方法中，每字节最不复杂的比特都 被设置为零。这就可能会使图像的某些区域变得稍微亮一点，但这通常不会被注意到。现 在，我们可以通过保持和改变最不复杂的比特来隐藏二进制数据。如果二进制数是 0，就 保持，如果是 1，就改变该比特为 1。用这种方法，我们就能在三个像素中隐藏一个字符(8 个 ASCII 比特)。例如，下面的三个像素就能代表字母 M</p>
+<p><img src="http://a2.qpic.cn/psb?/V11CXqIz1GcAqL/1QxcTdc6IBUKp8WNLShqKpkACGSckVfeOUZ9DppAuOM!/b/dLIAAAAAAAAA&amp;bo=sgJXALICVwADCSw!&amp;rf=viewer_4" alt=""></p>
 
       
 
