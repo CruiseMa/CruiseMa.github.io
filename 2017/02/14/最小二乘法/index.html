@@ -20,7 +20,10 @@
 <meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/yStA8x8Zc4x6gL4KRxo9vEu2xA8GzyVAxcka7guSi5c!/b/dBYAAAAAAAAA&bo=rwFNAK8BTQADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V11CXqIz0j9b24/KBJ7qOnmhDufcJP4RoSbu6DMOLi4FIkT7YQ8FDcRGe8!/b/dN0AAAAAAAAA&bo=jAFmAIwBZgADCSw!&rf=viewer_4">
 <meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/sRrfZdYoW2eJmEFrS9H8pa6lM6LL.H5DEKYWNtgicT0!/b/dG4BAAAAAAAA&bo=mACZAJgAmQADCSw!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-02-17T06:32:08.789Z">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/38iKsZoOioQike1NHvTb9DfUhAM9EEG58iky9GYpQI4!/b/dG4BAAAAAAAA&bo=ugHtALoB7QADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/.cNp0jJeP1ZOi9.Miir.XjhQLcv8GWem.37Zi6JQkaY!/b/dG4BAAAAAAAA&bo=nwA2AJ8ANgADCSw!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/uu0D0JSgMG1k4iendKh8X4Meos1QT6ESrqLkPbyplKM!/b/dCIAAAAAAAAA&bo=DgKEAA4ChAADCSw!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-02-17T09:02:25.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（三）：最小二乘法">
 <meta name="twitter:description" content="基于Andrew Ng（吴恩达）的机器学习课程">
@@ -194,9 +197,12 @@
 <p>引入第二个概念：迹算子（trace operator），记作’tr’。对于一个n<em>n维的矩阵A，A的迹就是矩阵主对角线上的元素的和![](<a href="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/idGT0uac0Px98ZU53m8dQ5XmMtFj9u" target="_blank" rel="external">http://a2.qpic.cn/psb?/V11CXqIz0j9b24/idGT0uac0Px98ZU53m8dQ5XmMtFj9u</a></em>3tsv5Wkfqnsc!/b/dCIAAAAAAAAA&amp;bo=qQBUAKkAVAADCSw!&amp;rf=viewer_4)</p>
 <h2 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h2><p>学习了矩阵导数，我们开始继续在封闭的模型中寻找θ使得J(θ)取得最小值。</p>
 <p>先把J重新写入向量矩阵中：</p>
-<p><strong>x</strong>为m<em>n维的矩阵，包含训练集的输入值<br>![](<a href="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/NEz6uPJS5w9f54ePpc2Nkoir2b5a0iGVNJnHHiui2Ts!/b/dCUAAAAAAAAA&amp;bo=" target="_blank" rel="external">http://a2.qpic.cn/psb?/V11CXqIz0j9b24/NEz6uPJS5w9f54ePpc2Nkoir2b5a0iGVNJnHHiui2Ts!/b/dCUAAAAAAAAA&amp;bo=</a></em>QCoAP0AqAADCSw!&amp;rf=viewer_4)</p>
-<p><strong>y</strong>为一维的列向量，值为所有的目标值<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/sRrfZdYoW2eJmEFrS9H8pa6lM6LL.H5DEKYWNtgicT0!/b/dG4BAAAAAAAA&amp;bo=mACZAJgAmQADCSw!&amp;rf=viewer_4" alt=""></p>
+<p><strong>X</strong>为m<em>n维的矩阵，包含训练集的输入值<br>![](<a href="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/NEz6uPJS5w9f54ePpc2Nkoir2b5a0iGVNJnHHiui2Ts!/b/dCUAAAAAAAAA&amp;bo=" target="_blank" rel="external">http://a2.qpic.cn/psb?/V11CXqIz0j9b24/NEz6uPJS5w9f54ePpc2Nkoir2b5a0iGVNJnHHiui2Ts!/b/dCUAAAAAAAAA&amp;bo=</a></em>QCoAP0AqAADCSw!&amp;rf=viewer_4)</p>
+<p><strong>Y</strong>为一维的列向量，值为所有的目标值<br><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/sRrfZdYoW2eJmEFrS9H8pa6lM6LL.H5DEKYWNtgicT0!/b/dG4BAAAAAAAA&amp;bo=mACZAJgAmQADCSw!&amp;rf=viewer_4" alt=""></p>
 <p>m表示样本的数目,n表示特征的数目。（实际上是m*(n+1)，如果算上偏置项θ<sub>0</sub>）</p>
+<p><img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/38iKsZoOioQike1NHvTb9DfUhAM9EEG58iky9GYpQI4!/b/dG4BAAAAAAAA&amp;bo=ugHtALoB7QADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>对于列向量<strong>Z</strong>，易证<img src="http://a1.qpic.cn/psb?/V11CXqIz0j9b24/.cNp0jJeP1ZOi9.Miir.XjhQLcv8GWem.37Zi6JQkaY!/b/dG4BAAAAAAAA&amp;bo=nwA2AJ8ANgADCSw!&amp;rf=viewer_4" alt=""></p>
+<p>所以有<br><img src="http://a2.qpic.cn/psb?/V11CXqIz0j9b24/uu0D0JSgMG1k4iendKh8X4Meos1QT6ESrqLkPbyplKM!/b/dCIAAAAAAAAA&amp;bo=DgKEAA4ChAADCSw!&amp;rf=viewer_4" alt=""></p>
 
       
 
